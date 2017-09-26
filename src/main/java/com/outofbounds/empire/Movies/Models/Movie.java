@@ -1,12 +1,29 @@
 package com.outofbounds.empire.Movies.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "movies")
 public class Movie {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id", unique = true, nullable = false)
     private int id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "descriptions", nullable = true)
     private String description;
+
+    @Column(name = "age_limit")
     private int ageLimit;
+
+    @Column(name = "category")
     private String category;
+
+    @Column(name = "price")
     private float price;
 
     public Movie(int id, String title, String description, int ageLimit, String category, float price) {
@@ -17,6 +34,9 @@ public class Movie {
         this.category = category;
         this.price = price;
     }
+
+    // Non arg
+    public Movie() {}
 
     public int getId() {
         return id;
