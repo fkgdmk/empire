@@ -1,0 +1,31 @@
+package com.outofbounds.empire.Showings.Controllers;
+
+import com.outofbounds.empire.Movies.Models.Movie;
+import com.outofbounds.empire.Movies.Repositories.MovieRepository;
+import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * Created by Anders on 26-Sep-17.
+ */
+@RestController
+public class ShowingController {
+
+    @Autowired
+    public ShowingRepository showingRepository;
+
+    /**
+     * Basic route for showings
+     * @return Showing
+     */
+
+    @CrossOrigin(origins = "http://localhost:8000")
+    @RequestMapping(method = RequestMethod.GET, value = "/showings")
+    public @ResponseBody
+    List<Movie> showings() {
+        return showingRepository.findAll();
+    }
+}
