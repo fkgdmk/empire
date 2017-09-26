@@ -23,16 +23,19 @@ public class Movie {
     @Column(name = "category")
     private String category;
 
+    @Column(name = "image_url", nullable = true)
+    private String imageUrl;
+
     @Column(name = "price")
     private float price;
 
-    public Movie(int id, String title, String description, int ageLimit, String category, float price) {
-        this.id = id;
+    public Movie(String title, String description, int ageLimit, String category, float price, String imageUrl) {
         this.title = title;
         this.description = description;
         this.ageLimit = ageLimit;
         this.category = category;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
     // Non arg
@@ -84,5 +87,13 @@ public class Movie {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
