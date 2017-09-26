@@ -1,11 +1,11 @@
 package com.outofbounds.empire.Showings.Controllers;
 
-import com.outofbounds.empire.Movies.Models.Movie;
-import com.outofbounds.empire.Movies.Repositories.MovieRepository;
+import com.outofbounds.empire.Showings.Models.Showing;
 import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,10 +22,19 @@ public class ShowingController {
      * @return Showing
      */
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    @CrossOrigin(origins = "http://localhost:8080")
     @RequestMapping(method = RequestMethod.GET, value = "/showings")
     public @ResponseBody
-    List<Movie> showings() {
+    List<Showing> showings() {
         return showingRepository.findAll();
     }
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @RequestMapping(method = RequestMethod.POST, value = "/showings")
+    public @ResponseBody
+    Showing showingsAdd() {
+        return showingRepository.save(new Showing("Rolands liv 3", 1, new Date()));
+    }
+
+
 }
