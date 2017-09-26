@@ -10,7 +10,7 @@ target/
 .springBeans
 
 ### DO NOT TRACK CONFIG ###
-*.config
+*.properties
 
 ### IntelliJ IDEA ###
 .idea
