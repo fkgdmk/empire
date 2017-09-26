@@ -1,7 +1,7 @@
 package com.outofbounds.empire.Showrooms.Controllers;
 
 import com.outofbounds.empire.Showrooms.Models.Showroom;
-import com.outofbounds.empire.Showrooms.Repositories.MovieRepository;
+import com.outofbounds.empire.Showrooms.Repositories.ShowroomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
