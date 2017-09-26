@@ -14,3 +14,6 @@ To install this project run the following command in git bash
 
 
 afterwards you will need to import it to inteliji.
+
+
+Copy application.example into application.properties and configure it
