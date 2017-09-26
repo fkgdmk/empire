@@ -9,6 +9,9 @@ target/
 .settings
 .springBeans
 
+### DO NOT TRACK CONFIG ###
+*.config
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
