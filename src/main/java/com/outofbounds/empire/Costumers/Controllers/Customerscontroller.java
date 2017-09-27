@@ -4,6 +4,7 @@ import com.outofbounds.empire.Costumers.Repostitories.RepositorieCustomer;
 import com.outofbounds.empire.Costumers.Models.CustomerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -33,4 +34,25 @@ public class Customerscontroller {
     public @ResponseBody
     CustomerModel costumerModel(@PathVariable String phoneNumber) {return repositorieCustomer.findByPhoneNumber(phoneNumber);}
 
+    @RequestMapping(method = RequestMethod.PUT, value = (""))//toDO;
+    public @ResponseBody
+    CustomerModel updateMovie(
+            @PathVariable int id,
+            @RequestParam (required = false) String phonenumber,
+            @RequestParam (required = false) String name,
+            @RequestParam (required = false) String email
+    )
+    {
+        CustomerModel customer = repositorieCustomer.findById(id);
+
+        try {
+            customer.setName(name);
+            customer.setEmail(email);
+            customer.setPhonumber(phonenumber);
+
+        } catch (NullPointerException e) {
+        }
+        repositorieCustomer.save(customer);
+        return customer;
+    }
 }

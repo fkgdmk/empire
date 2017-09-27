@@ -17,9 +17,9 @@ public class CustomerModel {
         private String name;
 
         @Column(name = "Email")
-        private int email;
+        private String email;
 
-        public CustomerModel(String phonumber, String name, int email) {
+        public CustomerModel(String phonumber, String name, String email) {
             this.phoneNumber = phonumber;
             this.name = name;
             email = email;
@@ -49,11 +49,11 @@ public class CustomerModel {
             this.name = name;
         }
 
-        public int getEmail() {
+        public String getEmail() {
             return email;
         }
 
-        public void setEmail(int email) {
+        public void setEmail(String email) {
             email = email;
         }
     }
