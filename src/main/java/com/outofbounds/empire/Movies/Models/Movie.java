@@ -24,9 +24,9 @@ public class Movie {
     private String category;
 
     @Column(name = "price")
-    private float price;
+    private int price;
 
-    public Movie(int id, String title, String description, int ageLimit, String category, float price) {
+    public Movie(int id, String title, String description, int ageLimit, String category, int price) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -82,7 +82,7 @@ public class Movie {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

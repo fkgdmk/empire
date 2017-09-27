@@ -1,5 +1,4 @@
 package com.outofbounds.empire.Movies.Repositories;
-
 import com.outofbounds.empire.Movies.Models.Movie;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
