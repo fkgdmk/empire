@@ -1,5 +1,7 @@
 package com.outofbounds.empire.Showings.Models;
 
+import com.outofbounds.empire.Movies.Models.Movie;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,12 +15,13 @@ public class Showing
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
-    @Column(name = "movie_title")
-    private String movietitle;
+    @ManyToOne()
+    @JoinColumn(name = "movie.id", nullable = false)
+    private Movie movie;
 
     @Column(name = "datetime")
     private Date datetime;
@@ -26,9 +29,9 @@ public class Showing
     @Column(name = "showroom")
     private int showroom;
 
-    public Showing(String movietitle, int showroom, Date datetime)
+    public Showing(Movie movie, int showroom, Date datetime)
     {
-        this.movietitle = movietitle;
+        this.movie = movie;
         this.showroom = showroom;
         this.datetime = datetime;
     }
@@ -45,14 +48,11 @@ public class Showing
         this.id = id;
     }
 
-    public String getMovietitle()
-    {
-        return movietitle;
-    }
+    public Movie getMovie() {return movie;}
 
-    public void setMovietitle(String movietitle)
+    public void setMovie(Movie movie)
     {
-        this.movietitle = movietitle;
+        this.movie = movie;
     }
 
     public Date getDatetime() {
