@@ -2,11 +2,8 @@ package com.outofbounds.empire.Costumers.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Costumers")
-public class CostumerModel {
-
-
-    public class Movie {
+@Table(name = "Customers")
+public class CustomerModel {
 
         @Id
         @GeneratedValue
@@ -14,18 +11,18 @@ public class CostumerModel {
         private int id;
 
         @Column(name = "Phonenumber")
-        private String phonumber;
+        private String phoneNumber;
 
         @Column(name = "Name", nullable = true)
         private String name;
 
         @Column(name = "Email")
-        private int Email;
+        private int email;
 
-        public Movie(String phonumber, String name, int email) {
-            this.phonumber = phonumber;
+        public CustomerModel(String phonumber, String name, int email) {
+            this.phoneNumber = phonumber;
             this.name = name;
-            Email = email;
+            email = email;
         }
 
         public int getId() {
@@ -37,11 +34,11 @@ public class CostumerModel {
         }
 
         public String getPhonumber() {
-            return phonumber;
+            return phoneNumber;
         }
 
         public void setPhonumber(String phonumber) {
-            this.phonumber = phonumber;
+            this.phoneNumber = phonumber;
         }
 
         public String getName() {
@@ -53,13 +50,10 @@ public class CostumerModel {
         }
 
         public int getEmail() {
-            return Email;
+            return email;
         }
 
         public void setEmail(int email) {
-            Email = email;
+            email = email;
         }
     }
-
-
-}
