@@ -49,6 +49,21 @@ class MovieController {
         return movie;
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/movies/{id}")
+    public @ResponseBody
+    boolean deleteMovie(
+            @PathVariable int id
+    )
+    {
+        Movie movie = movieRepository.findById(id);
+
+        if (movie == null){
+            return false;
+        }
+        movieRepository.delete(movie);
+        return true;
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
     public @ResponseBody
     Movie movie(@PathVariable int id) {
