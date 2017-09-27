@@ -1,16 +1,11 @@
 package com.outofbounds.empire.Showings.Controllers;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.outofbounds.empire.Movies.Models.Movie;
 import com.outofbounds.empire.Movies.Repositories.MovieRepository;
 import com.outofbounds.empire.Showings.Models.Showing;
 import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
-import com.outofbounds.empire.Showrooms.Models.Showroom;
 import com.outofbounds.empire.Showrooms.Repositories.ShowroomRepository;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
