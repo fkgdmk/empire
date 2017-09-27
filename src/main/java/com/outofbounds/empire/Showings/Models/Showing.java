@@ -12,9 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "showings")
-public class Showing
-{
-
+public class Showing {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
@@ -31,8 +29,7 @@ public class Showing
     @Column(name = "datetime")
     private Date datetime;
 
-    public Showing(Movie movie, Showroom showroom, Date datetime)
-    {
+    public Showing(Movie movie, Showroom showroom, Date datetime) {
         this.movie = movie;
         this.showroom = showroom;
         this.datetime = datetime;
@@ -40,38 +37,35 @@ public class Showing
 
     public Showing() {}
 
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Movie getMovie() {return movie;}
+    public Movie getMovie() {
+        return movie;
+    }
 
-    public void setMovie(Movie movie)
-    {
+    public void setMovie(Movie movie) {
         this.movie = movie;
     }
 
     public Date getDatetime() {
-        return datetime;}
+        return datetime;
+    }
 
-    public void setDatetime(Date datetime)
-    {
+    public void setDatetime(Date datetime) {
         this.datetime = datetime;
     }
 
-    public Showroom getShowroom()
-    {
+    public Showroom getShowroom() {
         return showroom;
     }
 
-    public void setShowroom(Showroom showroom)
-    {
+    public void setShowroom(Showroom showroom) {
         this.showroom = showroom;
     }
 }

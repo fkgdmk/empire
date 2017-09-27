@@ -9,8 +9,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public interface ShowroomRepository extends CrudRepository<Showroom, Integer>
-{
+public interface ShowroomRepository extends CrudRepository<Showroom, Integer> {
     public List<Showroom> findAll();
 
     public Showroom findById(int Id);

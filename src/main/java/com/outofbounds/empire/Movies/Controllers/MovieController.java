@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 class MovieController {
-
     @Autowired
     public MovieRepository movieRepository;
 
@@ -27,15 +26,13 @@ class MovieController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
     public @ResponseBody
-    Movie movie(@PathVariable int id)
-    {
+    Movie movie(@PathVariable int id) {
         return movieRepository.findById(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/random")
     public @ResponseBody
-    List<Movie> createMovie()
-    {
+    List<Movie> createMovie() {
         for (int i = 0; i < 100; i++) {
             Movie movie = new Movie(
                     "title",
@@ -45,10 +42,8 @@ class MovieController {
                     12,
                     "http://www.kino.dk/sites/default/files/styles/k_poster_small/public/movie-posters/americanassassin_bio.jpg?itok=zmW71n5t"
             );
-
             movieRepository.save(movie);
         }
-
         return movieRepository.findAll();
     }
 }

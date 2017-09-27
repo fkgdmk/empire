@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Table(name = "movies")
 public class Movie {
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
@@ -41,20 +40,17 @@ public class Movie {
         this.ageLimit = ageLimit;
         this.category = category;
         this.price = price;
-//        this.showings = showings;
         this.imageUrl = imageUrl;
     }
 
     // Non arg
     public Movie() {}
 
-    public List<Showing> getShowings()
-    {
+    public List<Showing> getShowings() {
         return showings;
     }
 
-    public void setShowings(List<Showing> showings)
-    {
+    public void setShowings(List<Showing> showings) {
         this.showings = showings;
     }
 
