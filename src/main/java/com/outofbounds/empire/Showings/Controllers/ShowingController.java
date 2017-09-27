@@ -27,5 +27,4 @@ public class ShowingController {
     List<Showing> showings() {
         return showingRepository.findAll();
     }
-
 }
