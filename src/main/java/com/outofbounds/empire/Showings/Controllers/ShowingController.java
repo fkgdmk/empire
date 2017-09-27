@@ -11,8 +11,11 @@ import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Anders on 26-Sep-17.
@@ -45,13 +48,22 @@ public class ShowingController {
     public @ResponseBody
     Showing addShowing(
             @RequestParam (required = true) int movie_id,
-            @RequestParam (required = true) int showroom_id
+            @RequestParam (required = true) int showroom_id,
+            @RequestParam (required = true) String date
     )
     {
+        Date datetime = null;
+        DateFormat df = new SimpleDateFormat("MM dd HH mm yyyy", Locale.ENGLISH);
+        try{
+            datetime = df.parse(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Showing showing = new Showing(
                 movieRepository.findById(movie_id),
                 showroomRepository.findById(showroom_id),
-                new Date()
+                datetime
         );
         showingRepository.save(showing);
         return showing;
