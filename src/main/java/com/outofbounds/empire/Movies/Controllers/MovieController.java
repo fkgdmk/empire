@@ -24,4 +24,31 @@ class MovieController {
     List<Movie> movies() {
         return movieRepository.findAll();
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
+    public @ResponseBody
+    Movie movie(@PathVariable int id)
+    {
+        return movieRepository.findById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/random")
+    public @ResponseBody
+    List<Movie> createMovie()
+    {
+        for (int i = 0; i < 100; i++) {
+            Movie movie = new Movie(
+                    "title",
+                    "",
+                    12,
+                    "Action",
+                    12,
+                    "http://www.kino.dk/sites/default/files/styles/k_poster_small/public/movie-posters/americanassassin_bio.jpg?itok=zmW71n5t"
+            );
+
+            movieRepository.save(movie);
+        }
+
+        return movieRepository.findAll();
+    }
 }

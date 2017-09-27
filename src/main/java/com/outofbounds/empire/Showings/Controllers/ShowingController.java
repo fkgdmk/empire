@@ -29,12 +29,4 @@ public class ShowingController {
         return showingRepository.findAll();
     }
 
-//    @CrossOrigin(origins = "http://localhost:8080")
-//    @RequestMapping(method = RequestMethod.POST, value = "/showings")
-//    public @ResponseBody
-//    Showing showingsAdd() {
-//        return showingRepository.save(new Showing("R 1", new Date()));
-//    }
-
-
 }

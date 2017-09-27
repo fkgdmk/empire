@@ -1,6 +1,7 @@
 package com.outofbounds.empire.Showings.Models;
 
 import com.outofbounds.empire.Movies.Models.Movie;
+import com.outofbounds.empire.Showrooms.Models.Showroom;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,13 +24,14 @@ public class Showing
     @JoinColumn(name = "movie.id", nullable = false)
     private Movie movie;
 
+    @ManyToOne()
+    @JoinColumn(name = "showroom.id", nullable = false)
+    private Showroom showroom;
+
     @Column(name = "datetime")
     private Date datetime;
 
-    @Column(name = "showroom")
-    private int showroom;
-
-    public Showing(Movie movie, int showroom, Date datetime)
+    public Showing(Movie movie, Showroom showroom, Date datetime)
     {
         this.movie = movie;
         this.showroom = showroom;
@@ -63,12 +65,12 @@ public class Showing
         this.datetime = datetime;
     }
 
-    public int getShowroom()
+    public Showroom getShowroom()
     {
         return showroom;
     }
 
-    public void setShowroom(int showroom)
+    public void setShowroom(Showroom showroom)
     {
         this.showroom = showroom;
     }
