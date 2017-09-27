@@ -1,17 +1,23 @@
 package com.outofbounds.empire.Showrooms.Models;
 
+import com.outofbounds.empire.Showings.Models.Showing;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "showrooms")
 public class Showroom {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "showroom")
+    private List<Showing> showings;
 
     @Column(name = "width", nullable = false)
     private int width;
