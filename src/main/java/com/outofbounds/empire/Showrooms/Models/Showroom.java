@@ -4,8 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "showrooms")
-public class Showroom
-{
+public class Showroom {
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
@@ -17,46 +16,49 @@ public class Showroom
     @Column(name = "width", nullable = false)
     private int width;
 
-    @Column(name = "hight", nullable = false)
-    private int hight;
+    @Column(name = "height", nullable = false)
+    private int height;
 
-    public int getId()
-    {
+    public Showroom(){
+
+    }
+
+
+    public Showroom(String name, int width, int height) {
+        this.name = name;
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getWidth()
-    {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(int width)
-    {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public int getHight()
-    {
-        return hight;
+    public int getHeight() {
+        return height;
     }
 
-    public void setHight(int hight)
-    {
-        this.hight = hight;
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

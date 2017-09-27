@@ -19,7 +19,7 @@ public class ShowroomController
      * @return showroom
      */
     @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.GET, value = "/showroom")
+    @RequestMapping(method = RequestMethod.GET, value = "/showrooms")
     public @ResponseBody
     List<Showroom> showroom() {
         return showroomRepository.findAll();
