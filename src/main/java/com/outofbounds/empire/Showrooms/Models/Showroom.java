@@ -1,7 +1,7 @@
 package com.outofbounds.empire.Showrooms.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.outofbounds.empire.Showings.Models.Showing;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +17,7 @@ public class Showroom {
     private String name;
 
     @OneToMany(mappedBy = "showroom")
+    @JsonBackReference
     private List<Showing> showings;
 
     @Column(name = "width", nullable = false)
@@ -26,7 +27,6 @@ public class Showroom {
     private int height;
 
     public Showroom(){
-
     }
 
     public Showroom(String name, int width, int height) {

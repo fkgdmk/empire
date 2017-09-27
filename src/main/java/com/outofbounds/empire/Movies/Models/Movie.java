@@ -1,7 +1,7 @@
 package com.outofbounds.empire.Movies.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.outofbounds.empire.Showings.Models.Showing;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,6 +20,7 @@ public class Movie {
     private String description;
 
     @OneToMany(mappedBy = "movie")
+    @JsonBackReference
     private List<Showing> showings;
 
     @Column(name = "age_limit")
@@ -34,7 +35,7 @@ public class Movie {
     @Column(name = "price")
     private int price;
 
-    public Movie(String title, String description, int ageLimit, String category, float price, String imageUrl) {
+    public Movie(String title, String description, int ageLimit, String category, int price, String imageUrl) {
         this.title = title;
         this.description = description;
         this.ageLimit = ageLimit;
@@ -43,7 +44,6 @@ public class Movie {
         this.imageUrl = imageUrl;
     }
 
-    // Non arg
     public Movie() {}
 
     public List<Showing> getShowings() {
