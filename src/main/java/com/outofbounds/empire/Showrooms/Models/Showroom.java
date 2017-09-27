@@ -23,7 +23,6 @@ public class Showroom {
 
     }
 
-
     public Showroom(String name, int width, int height) {
         this.name = name;
         this.width = width;

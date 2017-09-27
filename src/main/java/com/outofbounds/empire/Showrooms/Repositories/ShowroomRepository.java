@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface ShowroomRepository extends CrudRepository<Showroom, Integer>
 {
-
     public List<Showroom> findAll();
 
     public Showroom findById(int Id);

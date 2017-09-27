@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 public class ShowroomController
 {
-
     @Autowired
     public ShowroomRepository showroomRepository;
 
