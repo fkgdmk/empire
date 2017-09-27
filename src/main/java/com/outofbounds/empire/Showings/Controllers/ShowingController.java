@@ -21,7 +21,7 @@ public class ShowingController {
      * @return Showing
      */
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/showings")
     public @ResponseBody
     List<Showing> showings() {
