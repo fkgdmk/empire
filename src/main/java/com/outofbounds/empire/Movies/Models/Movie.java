@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "movies")
 public class Movie {
 
+
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
@@ -14,7 +15,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "descriptions", nullable = true)
+    @Column(name = "descriptions",length = 1000000000, nullable = true)
     private String description;
 
     @Column(name = "age_limit")
@@ -29,7 +30,7 @@ public class Movie {
     @Column(name = "price")
     private float price;
 
-    public Movie(String title, String description, int ageLimit, String category, float price, String imageUrl) {
+    public Movie(String title, String description, int ageLimit, String category, float price, String imageUrl) throws Exception {
         this.title = title;
         this.description = description;
         this.ageLimit = ageLimit;
@@ -39,7 +40,7 @@ public class Movie {
     }
 
     // Non arg
-    public Movie() {}
+    public Movie() throws Exception {}
 
     public int getId() {
         return id;
