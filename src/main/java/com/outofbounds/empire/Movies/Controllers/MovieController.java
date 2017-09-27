@@ -18,7 +18,6 @@ class MovieController {
      * Basic route for movies
      * @return Movie
      */
-
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/movies")
     public @ResponseBody List<Movie> movies() {
@@ -28,12 +27,14 @@ class MovieController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/movies/{id}")
     public @ResponseBody
-    Movie updateMovie(@PathVariable int id,
-                      @RequestParam (required = false) String title,
-                      @RequestParam (required = false) String description,
-                      @RequestParam (required = false) String category,
-                      @RequestParam (required = false) Integer ageLimit,
-                      @RequestParam (required = false) Integer price)
+    Movie updateMovie(
+            @PathVariable int id,
+            @RequestParam (required = false) String title,
+            @RequestParam (required = false) String description,
+            @RequestParam (required = false) String category,
+            @RequestParam (required = false) Integer ageLimit,
+            @RequestParam (required = false) Integer price
+    )
     {
         Movie movie = movieRepository.findById(id);
 
@@ -44,7 +45,6 @@ class MovieController {
             movie.setAgeLimit(ageLimit);
             movie.setPrice(price);
         } catch (NullPointerException e) {
-
         }
         movieRepository.save(movie);
         return movie;
