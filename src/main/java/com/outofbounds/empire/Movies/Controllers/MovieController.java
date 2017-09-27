@@ -55,12 +55,12 @@ class MovieController {
         return movieRepository.findById(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/random")
+    @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/randomlist")
     public @ResponseBody
-    List<Movie> createMovie() {
+    List<Movie> createMovies() {
         for (int i = 0; i < 100; i++) {
             Movie movie = new Movie(
-                    "title",
+                    "Transformers 16",
                     "",
                     12,
                     "Action",
@@ -70,5 +70,20 @@ class MovieController {
             movieRepository.save(movie);
         }
         return movieRepository.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/random")
+    public @ResponseBody
+    Movie createMovie() {
+        Movie movie = new Movie(
+                "Transformers 16",
+                "",
+                12,
+                "Action",
+                12,
+                "http://www.kino.dk/sites/default/files/styles/k_poster_small/public/movie-posters/americanassassin_bio.jpg?itok=zmW71n5t"
+        );
+        movieRepository.save(movie);
+        return movie;
     }
 }

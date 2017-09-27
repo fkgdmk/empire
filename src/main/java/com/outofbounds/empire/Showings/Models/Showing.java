@@ -1,5 +1,6 @@
 package com.outofbounds.empire.Showings.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.outofbounds.empire.Movies.Models.Movie;
 import com.outofbounds.empire.Showrooms.Models.Showroom;
 
@@ -19,6 +20,7 @@ public class Showing {
     private int id;
 
     @ManyToOne()
+    @JsonManagedReference
     @JoinColumn(name = "movie.id", nullable = false)
     private Movie movie;
 
