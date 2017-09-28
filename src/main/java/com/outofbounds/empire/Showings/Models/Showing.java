@@ -26,7 +26,7 @@ public class Showing {
     private Movie movie;
 
     @ManyToOne()
-    @JoinColumn(name = "showroom.id", nullable = false)
+    @JoinColumn(name = "reservations.id", nullable = false)
     private Showroom showroom;
 
     @OneToMany(mappedBy = "showing")
