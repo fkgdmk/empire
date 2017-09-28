@@ -1,14 +1,15 @@
 package com.outofbounds.empire.Movies.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.outofbounds.empire.Showings.Models.Showing;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "movies")
 public class Movie {
-
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
@@ -17,6 +18,10 @@ public class Movie {
 
     @Column(name = "descriptions",length = 1000000000, nullable = true)
     private String description;
+
+    @OneToMany(mappedBy = "movie")
+    @JsonBackReference
+    private List<Showing> showings;
 
     @Column(name = "age_limit")
     private int ageLimit;
@@ -28,9 +33,9 @@ public class Movie {
     private String imageUrl;
 
     @Column(name = "price")
-    private float price;
+    private int price;
 
-    public Movie(String title, String description, int ageLimit, String category, float price, String imageUrl) throws Exception {
+    public Movie(String title, String description, int ageLimit, String category, int price, String imageUrl) throws Exception {
         this.title = title;
         this.description = description;
         this.ageLimit = ageLimit;
@@ -41,6 +46,14 @@ public class Movie {
 
     // Non arg
     public Movie() throws Exception {}
+
+    public List<Showing> getShowings() {
+        return showings;
+    }
+
+    public void setShowings(List<Showing> showings) {
+        this.showings = showings;
+    }
 
     public int getId() {
         return id;
@@ -86,7 +99,7 @@ public class Movie {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

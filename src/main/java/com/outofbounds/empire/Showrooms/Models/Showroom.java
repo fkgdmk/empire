@@ -1,17 +1,24 @@
 package com.outofbounds.empire.Showrooms.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.outofbounds.empire.Showings.Models.Showing;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "showrooms")
 public class Showroom {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "showroom")
+    @JsonBackReference
+    private List<Showing> showings;
 
     @Column(name = "width", nullable = false)
     private int width;
@@ -20,7 +27,6 @@ public class Showroom {
     private int height;
 
     public Showroom(){
-
     }
 
     public Showroom(String name, int width, int height) {
