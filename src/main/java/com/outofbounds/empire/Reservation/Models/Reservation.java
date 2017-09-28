@@ -17,8 +17,6 @@ public class Reservation {
     private int seat;
     @Column(name = "customers")
     private String phoneNumber;
-
-    public Reservation(){}
   
     public Reservation(Showing showing, int seat, String phoneNumber) {
         this.showing = showing;
@@ -26,6 +24,9 @@ public class Reservation {
         this.phoneNumber = phoneNumber;
     }
 
+    public Reservation() {
+    }
+  
     public String getPhoneNumber() {
         return phoneNumber;
     }
