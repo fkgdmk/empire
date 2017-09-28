@@ -15,9 +15,29 @@ public class Reservation {
     @ManyToOne()
     @JoinColumn(name = "showing.id", nullable = false)
     private Showing showing;
-
     @Column(name = "seat_number")
     private int seat;
+    @Column(name = "customers")
+    private String phoneNumber;
+
+
+
+
+
+
+    public Reservation(Showing showing, int seat, String phoneNumber) {
+        this.showing = showing;
+        this.seat = seat;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public int getId() {
         return id;
