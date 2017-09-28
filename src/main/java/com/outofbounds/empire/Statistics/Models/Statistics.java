@@ -13,16 +13,13 @@ public class Statistics {
     @Column(name = "movie_id")
     private int movieID;
 
-    @Column(name = "totalSeat", nullable = true)
-    private int totalSeat;
+    @Column(name = "totalReservations")
+    private int totalReservations;
 
-    @Column(name = "seatsPrScreening")
-    private int seatPrScreening;
 
-    public Statistics(int movieID, int totalSeat, int seatPrScreening) {
+    public Statistics(int movieID, int totalSeat) {
         this.movieID = movieID;
-        this.totalSeat = totalSeat;
-        this.seatPrScreening = seatPrScreening;
+        this.totalReservations = totalSeat;
     }
 
     public int getMovieID() {
@@ -33,19 +30,12 @@ public class Statistics {
         this.movieID = movieID;
     }
 
-    public int getTotalSeat() {
-        return totalSeat;
+    public int getTotalReservations() {
+        return totalReservations;
     }
 
-    public void setTotalSeat(int totalSeat) {
-        this.totalSeat = totalSeat;
+    public void setTotalReservations(int totalReservations) {
+        this.totalReservations = totalReservations;
     }
 
-    public int getSeatPrScreening() {
-        return seatPrScreening;
-    }
-
-    public void setSeatPrScreening(int seatPrScreening) {
-        this.seatPrScreening = seatPrScreening;
-    }
 }
