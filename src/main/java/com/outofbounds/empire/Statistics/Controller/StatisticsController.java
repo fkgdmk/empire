@@ -27,6 +27,7 @@ public class StatisticsController {
 
     @Autowired
     public ShowroomRepository showroomRepository;
+
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/Statistics")
     public @ResponseBody
