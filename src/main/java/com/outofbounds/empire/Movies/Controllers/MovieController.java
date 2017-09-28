@@ -26,7 +26,7 @@ class MovieController {
         return movieRepository.findAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    //@CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.DELETE, value = "/movies/{id}")
     public @ResponseBody
     boolean deleteMovie(
@@ -41,6 +41,17 @@ class MovieController {
         movieRepository.delete(movie);
         return true;
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/movies/{id}")
+    public @ResponseBody
+    Movie updateMovie(
+            @PathVariable int id
+
+    ){
+        Movie movie = movieRepository.findById(id);
+        return movie;
+    }
+
 
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
