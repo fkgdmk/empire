@@ -4,17 +4,17 @@ import com.outofbounds.empire.Movies.Repositories.MovieRepository;
 import com.outofbounds.empire.Showings.Models.Showing;
 import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
 import com.outofbounds.empire.Showrooms.Repositories.ShowroomRepository;
+import com.pusher.rest.Pusher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Anders on 26-Sep-17.
- */
 @RestController
 public class ShowingController {
     @Autowired
@@ -25,6 +25,9 @@ public class ShowingController {
 
     @Autowired
     public ShowroomRepository showroomRepository;
+
+    @Autowired
+    private Environment env;
 
     /**
      * Basic route for showings
@@ -42,6 +45,29 @@ public class ShowingController {
     public @ResponseBody
     Showing showing(@PathVariable int id) {
         return showingRepository.findById(id);
+    }
+
+    @CrossOrigin(origins = {"http://localhost:8000"})
+    @RequestMapping(method = RequestMethod.PUT, value = "/showings/{id}/viewing")
+    public @ResponseBody
+    Boolean pushToWebsocket(@PathVariable int id, @RequestBody String seatNumber)
+    {
+        Pusher pusher = new Pusher(
+                env.getProperty("pusher.appId"),
+                env.getProperty("pusher.key"),
+                env.getProperty("pusher.secret")
+        );
+
+        pusher.setCluster("eu");
+        pusher.setEncrypted(true);
+
+        pusher.trigger(
+                "showing_reservations",
+                "" + id,
+                seatNumber
+        );
+
+        return true;
     }
 
     //@CrossOrigin(origins = "http://localhost:8000")
