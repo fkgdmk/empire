@@ -30,7 +30,6 @@ public class ShowingController {
      * Basic route for showings
      * @return Showing
      */
-
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/showings")
     public @ResponseBody
