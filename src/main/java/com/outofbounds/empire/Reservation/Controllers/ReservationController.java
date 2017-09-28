@@ -30,8 +30,7 @@ class ReservationController {
     public @ResponseBody
     Reservation reservation(@PathVariable int id) {
         return reservationRepository.findById(id);
-    }
-
+   }
 
     @RequestMapping(method = RequestMethod.POST, value = "/movies")
     public @ResponseBody
@@ -43,8 +42,8 @@ class ReservationController {
         Reservation reservation = new Reservation(showingRepository.findById(showroomid),seats,phoneNumber);
         reservationRepository.save(reservation);
         return reservation;
-
     }
+
     @RequestMapping(method = RequestMethod.DELETE, value = "/movies/{id}")
     public @ResponseBody
     boolean deleteReservation(
@@ -56,9 +55,4 @@ class ReservationController {
         reservationRepository.delete(reservation);
         return true;
     }
-
-
-
-
-
 }
