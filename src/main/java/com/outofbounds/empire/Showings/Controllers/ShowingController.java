@@ -38,6 +38,7 @@ public class ShowingController {
         return showingRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/showings/{id}")
     public @ResponseBody
     Showing showing(@PathVariable int id) {
@@ -70,6 +71,7 @@ public class ShowingController {
         return showing;
     }
 
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.DELETE, value = "/showings/{id}")
     public @ResponseBody
     boolean deleteShowing(@PathVariable int id) {
