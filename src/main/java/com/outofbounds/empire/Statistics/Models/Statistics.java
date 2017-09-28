@@ -2,7 +2,7 @@ package com.outofbounds.empire.Statistics.Models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity//
 @Table(name = "statistics")
 public class Statistics {
 
