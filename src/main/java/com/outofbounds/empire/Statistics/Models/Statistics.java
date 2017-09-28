@@ -10,8 +10,7 @@ public class Statistics {
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
-    @OneToOne(mappedBy = "movie_Id")
-    @Column(name = "movie id")//foreing key
+    @Column(name = "movie_id")
     private int movieID;
 
     @Column(name = "totalSeat", nullable = true)
