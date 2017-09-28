@@ -28,7 +28,7 @@ public class ShowingController {
 
     /**
      * Basic route for showings
-     * @return Showing
+     * @return reservations
      */
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/showings")

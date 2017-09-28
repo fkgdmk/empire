@@ -16,7 +16,7 @@ public class Showroom {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "reservations")
+    @OneToMany(mappedBy = "showroom")
     @JsonBackReference
     private List<Showing> showings;
 
