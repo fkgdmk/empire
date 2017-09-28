@@ -4,9 +4,7 @@ import com.outofbounds.empire.Costumers.Repostitories.RepositorieCustomer;
 import com.outofbounds.empire.Costumers.Models.CustomerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 public class Customerscontroller {
@@ -19,24 +17,31 @@ public class Customerscontroller {
      *
      * @return costumers
      */
+
     @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.GET, value = "??")
+    @RequestMapping(method = RequestMethod.GET, value = "??"/*todo*/)
+
     public @ResponseBody
     List<CustomerModel> costumers() {
+
         return repositorieCustomer.findAll();
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "")
+
     public @ResponseBody
     CustomerModel costumerModel(@PathVariable int id) {
         return repositorieCustomer.findById(id);
     }
 
     public @ResponseBody
-    CustomerModel costumerModel(@PathVariable String phoneNumber) {return repositorieCustomer.findByPhoneNumber(phoneNumber);}
+    CustomerModel costumerModel(@PathVariable String phoneNumber) {
+        return repositorieCustomer.findByPhoneNumber(phoneNumber);
+    }
 
-    @RequestMapping(method = RequestMethod.PUT, value = (""))//toDO;
+    @RequestMapping(method = RequestMethod.PUT, value = (""))/*todo*/
     public @ResponseBody
-    CustomerModel updateMovie(
+    CustomerModel updateCustomer(
             @PathVariable int id,
             @RequestParam (required = false) String phonenumber,
             @RequestParam (required = false) String name,

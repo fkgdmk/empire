@@ -1,10 +1,10 @@
 package com.outofbounds.empire.Costumers.Models;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Customers")
 public class CustomerModel {
-
         @Id
         @GeneratedValue
         @Column(name = "id", unique = true, nullable = false)
@@ -49,9 +49,7 @@ public class CustomerModel {
             this.name = name;
         }
 
-        public String getEmail() {
-            return email;
-        }
+        public String getEmail() { return email; }
 
         public void setEmail(String email) {
             email = email;
