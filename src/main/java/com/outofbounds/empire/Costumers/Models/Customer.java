@@ -3,24 +3,24 @@ package com.outofbounds.empire.Costumers.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Customers")/*todo*/ //check om det her er rigtigt
-public class CustomerModel {
+@Table(name = "customers")/*todo*/ //check om det her er rigtigt
+public class Customer {
         @Id
         @GeneratedValue
         @Column(name = "id", unique = true, nullable = false)
         private int id;
 
-        @Column(name = "PhoneNumber")
+        @Column(name = "phoneNumber")
         private String phoneNumber;
 
-        @Column(name = "Name", nullable = true)
+        @Column(name = "name", nullable = true)
         private String name;
 
-        @Column(name = "Email")
+        @Column(name = "email")
         private String email;
 
-        public CustomerModel(String phonumber, String name, String email) {
-            this.phoneNumber = phonumber;
+        public Customer(String phoneNumber, String name, String email) {
+            this.phoneNumber = phoneNumber;
             this.name = name;
             email = email;
         }

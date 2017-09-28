@@ -1,16 +1,16 @@
 package com.outofbounds.empire.Costumers.Controllers;
 
-import com.outofbounds.empire.Costumers.Repostitories.RepositorieCustomer;
-import com.outofbounds.empire.Costumers.Models.CustomerModel;
+import com.outofbounds.empire.Costumers.Repostitories.CustomerRepository;
+import com.outofbounds.empire.Costumers.Models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class Customerscontroller {
+public class CustomerController {
 
     @Autowired
-    public RepositorieCustomer repositorieCustomer;
+    public CustomerRepository customerRepository;
 
     /**
      * Basic route for costumers
@@ -22,33 +22,31 @@ public class Customerscontroller {
     @RequestMapping(method = RequestMethod.GET, value = "??"/*todo*/)
 
     public @ResponseBody
-    List<CustomerModel> costumers() {
-
-        return repositorieCustomer.findAll();
+    List<Customer> costumers() {
+        return customerRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "")
-
     public @ResponseBody
-    CustomerModel costumerModel(@PathVariable int id) {
-        return repositorieCustomer.findById(id);
+    Customer costumerModel(@PathVariable int id) {
+        return customerRepository.findById(id);
     }
 
     public @ResponseBody
-    CustomerModel costumerModel(@PathVariable String phoneNumber) {
-        return repositorieCustomer.findByPhoneNumber(phoneNumber);
+    Customer costumerModel(@PathVariable String phoneNumber) {
+        return customerRepository.findByPhoneNumber(phoneNumber);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = (""))/*todo*/
     public @ResponseBody
-    CustomerModel updateCustomer(
+    Customer updateCustomer(
             @PathVariable int id,
             @RequestParam (required = false) String phonenumber,
             @RequestParam (required = false) String name,
             @RequestParam (required = false) String email
     )
     {
-        CustomerModel customer = repositorieCustomer.findById(id);
+        Customer customer = customerRepository.findById(id);
 
         try {
             customer.setName(name);
@@ -57,7 +55,7 @@ public class Customerscontroller {
 
         } catch (NullPointerException e) {
         }
-        repositorieCustomer.save(customer);
+        customerRepository.save(customer);
         return customer;
     }
 }
