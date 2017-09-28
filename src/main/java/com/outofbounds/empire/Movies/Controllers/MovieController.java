@@ -23,19 +23,13 @@ class MovieController {
     @RequestMapping(method = RequestMethod.GET, value = "/movies")
     public @ResponseBody
     List<Movie> movies() throws Exception {
-        MovieDBApi movieDB = new MovieDBApi();
-        movieDB.MovietoDB();
         return movieRepository.findAll();
-
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
     public @ResponseBody
-    Movie movie(@PathVariable int id)
-    {
+    Movie movie(@PathVariable int id) {
         return movieRepository.findById(id);
-
-
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/random")
@@ -43,21 +37,17 @@ class MovieController {
     List<Movie> createMovie() throws Exception {
         MovieDBApi movieDB = new MovieDBApi();
         ArrayList<Movie> movies = movieDB.MovietoDB();
-        for (int i = 0; i < 10 ; i++) {
-
+        for (int i = 0; i < movies.size() ; i++) {
             Movie movie = new Movie(
-
                     movies.get(i).getTitle(),
                     movies.get(i).getDescription(),
                     18,
                     movies.get(i).getCategory(),
                     100,
                     movies.get(i).getImageUrl()
-
             );
             movieRepository.save(movie);
         }
-
         return movieRepository.findAll();
     }
 }
