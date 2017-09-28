@@ -3,14 +3,14 @@ package com.outofbounds.empire.Costumers.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Customers")
+@Table(name = "Customers")/*todo*/ //check om det her er rigtigt
 public class CustomerModel {
         @Id
         @GeneratedValue
         @Column(name = "id", unique = true, nullable = false)
         private int id;
 
-        @Column(name = "Phonenumber")
+        @Column(name = "PhoneNumber")
         private String phoneNumber;
 
         @Column(name = "Name", nullable = true)
