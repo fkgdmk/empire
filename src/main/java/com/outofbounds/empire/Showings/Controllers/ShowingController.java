@@ -38,6 +38,12 @@ public class ShowingController {
         return showingRepository.findAll();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/showings/{id}")
+    public @ResponseBody
+    Showing showing(@PathVariable int id) {
+        return showingRepository.findById(id);
+    }
+
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.POST, value = "/showings")
     public @ResponseBody
@@ -49,7 +55,7 @@ public class ShowingController {
     {
         Date datetime = null;
         DateFormat df = new SimpleDateFormat("MM dd HH mm yyyy", Locale.ENGLISH);
-        try{
+        try {
             datetime = df.parse(date);
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,5 +68,16 @@ public class ShowingController {
         );
         showingRepository.save(showing);
         return showing;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/showings/{id}")
+    public @ResponseBody
+    boolean deleteShowing(@PathVariable int id) {
+        Showing showing = showingRepository.findById(id);
+        if (showing == null) {
+            return false;
+        }
+        showingRepository.delete(showing);
+        return true;
     }
 }
