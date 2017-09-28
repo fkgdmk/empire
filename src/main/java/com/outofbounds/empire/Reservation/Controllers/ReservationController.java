@@ -19,21 +19,21 @@ class ReservationController {
      * @return Movie
      */
     @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.GET, value = "/reservations")
+    @RequestMapping(method = RequestMethod.GET, value = "/reservation")
     public @ResponseBody
     List<Reservation> reservations() {
         return reservationRepository.findAll();
     }
 
     @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.GET, value = "/reservations/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/reservation/{id}")
     public @ResponseBody
     Reservation reservation(@PathVariable int id) {
         return reservationRepository.findById(id);
    }
 
-    @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.POST, value = "/reservations")
+    //@CrossOrigin(origins = "http://localhost:8000")
+    @RequestMapping(method = RequestMethod.POST, value = "/reservation")
     public @ResponseBody
     Reservation addReservation(
             @RequestParam (required = true) int seats,
@@ -45,8 +45,8 @@ class ReservationController {
         return reservation;
     }
 
-    @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.DELETE, value = "/reservations/{id}")
+    //@CrossOrigin(origins = {"http://localhost:8000"})
+    @RequestMapping(method = RequestMethod.DELETE, value = "/reservation/{id}")
     public @ResponseBody
     boolean deleteReservation(
             @PathVariable int id){

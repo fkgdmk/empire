@@ -10,7 +10,6 @@ public class Reservation {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private int id;
-
     @ManyToOne()
     @JoinColumn(name = "showings.id", nullable = false)
     private Showing showing;
@@ -19,6 +18,8 @@ public class Reservation {
     @Column(name = "customers")
     private String phoneNumber;
 
+    public Reservation(){}
+  
     public Reservation(Showing showing, int seat, String phoneNumber) {
         this.showing = showing;
         this.seat = seat;
