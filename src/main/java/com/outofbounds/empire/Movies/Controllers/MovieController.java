@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.sun.xml.internal.ws.api.model.wsdl.WSDLBoundOperation.ANONYMOUS.required;
+
 @RestController
 class MovieController {
 
@@ -45,13 +47,28 @@ class MovieController {
     @RequestMapping(method = RequestMethod.PUT, value = "/movies/{id}")
     public @ResponseBody
     Movie updateMovie(
-            @PathVariable int id
-
+            @PathVariable int id,
+            @RequestParam (required = false) String title,
+            @RequestParam (required = false) String description,
+            @RequestParam (required = false) Integer ageLimit,
+            @RequestParam (required = false) String category,
+            @RequestParam (required = false) Integer price,
+            @RequestParam (required = false) String url
     ){
         Movie movie = movieRepository.findById(id);
+        try {
+            movie.setTitle(title);
+            movie.setDescription(description);
+            movie.setAgeLimit(ageLimit);
+            movie.setCategory(category);
+            movie.setPrice(price);
+            movie.setImageUrl(url);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        movieRepository.save(movie);
         return movie;
     }
-
 
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
