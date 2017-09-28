@@ -11,7 +11,7 @@ public class Reservation {
     @Column(name = "id", unique = true, nullable = false)
     private int id;
     @ManyToOne()
-    @JoinColumn(name = "showing.id", nullable = false)
+    @JoinColumn(name = "showings.id", nullable = false)
     private Showing showing;
     @Column(name = "seat_number")
     private int seat;
@@ -19,7 +19,7 @@ public class Reservation {
     private String phoneNumber;
 
     public Reservation(){}
-
+  
     public Reservation(Showing showing, int seat, String phoneNumber) {
         this.showing = showing;
         this.seat = seat;

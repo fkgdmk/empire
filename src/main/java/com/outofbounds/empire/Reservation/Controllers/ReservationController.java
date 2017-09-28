@@ -24,7 +24,7 @@ class ReservationController {
     List<Reservation> reservations() {
         return reservationRepository.findAll();
     }
-    
+
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/reservation/{id}")
     public @ResponseBody

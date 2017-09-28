@@ -1,8 +1,8 @@
-package com.outofbounds.empire.Costumers.Repostitories;
+package com.outofbounds.empire.Customers.Repostitories;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.outofbounds.empire.Costumers.Models.Customer;
+import com.outofbounds.empire.Customers.Models.Customer;
 import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
