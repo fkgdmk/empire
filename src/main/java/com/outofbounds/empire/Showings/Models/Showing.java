@@ -2,10 +2,11 @@ package com.outofbounds.empire.Showings.Models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.outofbounds.empire.Movies.Models.Movie;
+import com.outofbounds.empire.Reservation.Models.Reservation;
 import com.outofbounds.empire.Showrooms.Models.Showroom;
-
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -27,6 +28,9 @@ public class Showing {
     @ManyToOne()
     @JoinColumn(name = "showroom.id", nullable = false)
     private Showroom showroom;
+
+    @OneToMany(mappedBy = "showing")
+    private List<Reservation> reservation;
 
     @Column(name = "datetime")
     private Date datetime;
