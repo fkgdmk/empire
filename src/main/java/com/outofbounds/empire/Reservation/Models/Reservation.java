@@ -1,7 +1,6 @@
 package com.outofbounds.empire.Reservation.Models;
 
 import com.outofbounds.empire.Showings.Models.Showing;
-
 import javax.persistence.*;
 
 @Entity
@@ -62,14 +61,4 @@ public class Reservation {
     public void setSeat(int seat) {
         this.seat = seat;
     }
-
-
-
-
-
-
-
-
-
-
 }
