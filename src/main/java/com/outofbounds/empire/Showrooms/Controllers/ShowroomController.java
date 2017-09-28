@@ -14,7 +14,7 @@ public class ShowroomController {
 
     /**
      * Basic route for showrooms
-     * @return reservations
+     * @return showroom
      */
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/showrooms")
