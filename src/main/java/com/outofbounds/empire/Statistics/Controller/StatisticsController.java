@@ -32,7 +32,6 @@ public class StatisticsController {
     @RequestMapping(method = RequestMethod.GET, value = "/Statistics")
     public @ResponseBody
     List<Statistics> statisticsModels() {
-
         return statisticsRepositories.findAll();
     }
 
