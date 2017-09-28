@@ -22,4 +22,14 @@ public class ShowroomController {
     List<Showroom> showroom() {
         return showroomRepository.findAll();
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/showrooms/generate")
+    public @ResponseBody
+    List<Showroom> createShowrooms() {
+        Showroom showroom1 = new Showroom("Room One", 12, 20);
+        Showroom showroom2 = new Showroom("Room Two", 20, 20);
+        showroomRepository.save(showroom1);
+        showroomRepository.save(showroom2);
+        return showroomRepository.findAll();
+    }
 }

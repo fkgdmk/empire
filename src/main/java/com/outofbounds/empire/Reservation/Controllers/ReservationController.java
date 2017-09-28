@@ -22,12 +22,12 @@ class ReservationController {
      * @return Movie
      */
     @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.GET, value = "/reservations")
+    @RequestMapping(method = RequestMethod.GET, value = "/reservation")
     public @ResponseBody
     List<Reservation> reservations() {
         return reservationRepository.findAll();
     }
-    
+
     @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/reservations/{id}")
     public @ResponseBody
@@ -35,7 +35,7 @@ class ReservationController {
         return reservationRepository.findById(id);
    }
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    //@CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.POST, value = "/reservations")
     public @ResponseBody
     Reservation addReservation(
@@ -47,8 +47,8 @@ class ReservationController {
         reservationRepository.save(reservation);
         return reservation;
     }
-
-    @CrossOrigin(origins = "http://localhost:8000")
+  
+    //@CrossOrigin(origins = {"http://localhost:8000"})
     @RequestMapping(method = RequestMethod.DELETE, value = "/reservations/{id}")
     public @ResponseBody
     boolean deleteReservation(@PathVariable int id){

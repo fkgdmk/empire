@@ -1,7 +1,7 @@
-package com.outofbounds.empire.Costumers.Controllers;
+package com.outofbounds.empire.Customers.Controllers;
 
-import com.outofbounds.empire.Costumers.Repostitories.CustomerRepository;
-import com.outofbounds.empire.Costumers.Models.Customer;
+import com.outofbounds.empire.Customers.Repostitories.CustomerRepository;
+import com.outofbounds.empire.Customers.Models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -13,31 +13,32 @@ public class CustomerController {
     public CustomerRepository customerRepository;
 
     /**
-     * Basic route for costumers
+     * Basic route for customers
      *
-     * @return costumers
+     * @return customers
      */
 
     @CrossOrigin(origins = "http://localhost:8000")
-    @RequestMapping(method = RequestMethod.GET, value = "??"/*todo*/)
-
+    @RequestMapping(method = RequestMethod.GET, value = "/customers")
     public @ResponseBody
-    List<Customer> costumers() {
+    List<Customer> customers() {
         return customerRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "")
+    @CrossOrigin(origins = "http://localhost:8000")
+    @RequestMapping(method = RequestMethod.GET, value = "/customers/{id}")
     public @ResponseBody
-    Customer costumerModel(@PathVariable int id) {
+    Customer customerModel(@PathVariable int id) {
         return customerRepository.findById(id);
     }
 
-    public @ResponseBody
-    Customer costumerModel(@PathVariable String phoneNumber) {
-        return customerRepository.findByPhoneNumber(phoneNumber);
-    }
+//    public @ResponseBody
+//    Customer customerModel(@PathVariable String phoneNumber) {
+//        return customerRepository.findByPhoneNumber(phoneNumber);
+//    }
 
-    @RequestMapping(method = RequestMethod.PUT, value = (""))/*todo*/
+    @CrossOrigin(origins = "http://localhost:8000")
+    @RequestMapping(method = RequestMethod.PUT, value = ("/customers/{id}"))
     public @ResponseBody
     Customer updateCustomer(
             @PathVariable int id,

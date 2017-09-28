@@ -1,9 +1,9 @@
-package com.outofbounds.empire.Costumers.Models;
+package com.outofbounds.empire.Customers.Models;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customers")/*todo*/ //check om det her er rigtigt
+@Table(name = "customers")
 public class Customer {
         @Id
         @GeneratedValue
