@@ -9,9 +9,7 @@ import java.util.List;
 @Transactional
 @Repository
 public interface StatisticsRepository extends CrudRepository<Statistics, Integer> {
-
     public List<Statistics> findAll();
     public Statistics findById(int Id);
     public Statistics findBymovieID(int movieID);
-
 }
