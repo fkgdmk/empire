@@ -12,7 +12,7 @@ public class Reservation {
     private int id;
 
     @ManyToOne()
-    @JoinColumn(name = "showing.id", nullable = false)
+    @JoinColumn(name = "showings.id", nullable = false)
     private Showing showing;
     @Column(name = "seat_number")
     private int seat;
