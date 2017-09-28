@@ -12,6 +12,7 @@ public class OutsideInformations {
     List<Movie> movies() {
         return movies();
     }
+
     public @ResponseBody
     List<Showing> showings() {
         return showings();
