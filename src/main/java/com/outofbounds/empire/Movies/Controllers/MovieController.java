@@ -26,6 +26,7 @@ class MovieController {
         return movieRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.DELETE, value = "/movies/{id}")
     public @ResponseBody
     boolean deleteMovie(
@@ -41,12 +42,14 @@ class MovieController {
         return true;
     }
 
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/movies/{id}")
     public @ResponseBody
     Movie movie(@PathVariable int id) {
         return movieRepository.findById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.GET, value = "/movies/generate/random")
     public @ResponseBody
     List<Movie> createMovie() throws Exception {
