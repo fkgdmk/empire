@@ -44,7 +44,7 @@ public class ShowingController {
         return showingRepository.findById(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    //@CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(method = RequestMethod.POST, value = "/showings")
     public @ResponseBody
     Showing addShowing(
