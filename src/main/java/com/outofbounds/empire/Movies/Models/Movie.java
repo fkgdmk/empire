@@ -16,7 +16,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "descriptions", nullable = true)
+    @Column(name = "descriptions",length = 1000000000, nullable = true)
     private String description;
 
     @OneToMany(mappedBy = "movie")
@@ -35,7 +35,7 @@ public class Movie {
     @Column(name = "price")
     private int price;
 
-    public Movie(String title, String description, int ageLimit, String category, int price, String imageUrl) {
+    public Movie(String title, String description, int ageLimit, String category, int price, String imageUrl) throws Exception {
         this.title = title;
         this.description = description;
         this.ageLimit = ageLimit;
@@ -44,7 +44,8 @@ public class Movie {
         this.imageUrl = imageUrl;
     }
 
-    public Movie() {}
+    // Non arg
+    public Movie() throws Exception {}
 
     public List<Showing> getShowings() {
         return showings;
