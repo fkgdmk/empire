@@ -2,7 +2,6 @@ package com.outofbounds.empire.Statistics.Models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.outofbounds.empire.Movies.Models.Movie;
-
 import javax.persistence.*;
 
 @Entity
