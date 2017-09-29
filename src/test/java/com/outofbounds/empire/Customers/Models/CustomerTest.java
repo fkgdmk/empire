@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 public class CustomerTest {
     Customer cus = new Customer("28","NAME!");
+    
     @Test //kan ikke testes da det autogenereres?
     public void getId() throws Exception {
         cus.setId(23);
