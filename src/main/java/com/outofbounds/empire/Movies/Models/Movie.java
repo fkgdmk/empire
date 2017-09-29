@@ -35,7 +35,7 @@ public class Movie {
     @Column(name = "price")
     private int price;
 
-    public Movie(String title, String description, int ageLimit, String category, int price, String imageUrl) throws Exception {
+    public Movie(String title, String description, int ageLimit, String category, int price, String imageUrl){
         this.title = title;
         this.description = description;
         this.ageLimit = ageLimit;
