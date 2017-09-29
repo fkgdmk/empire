@@ -1,103 +1,89 @@
 package com.outofbounds.empire.Movies.Models;
 
-import com.outofbounds.empire.Movies.Repositories.MovieRepository;
-import com.outofbounds.empire.Showings.Models.Showing;
-import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
-import com.outofbounds.empire.Showrooms.Models.Showroom;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
-
 import static org.junit.Assert.*;
-import java.util.Date;
 
 public class MovieTest {
-
     public MovieTest() throws Exception {
     }
-
-    @Autowired
-    ShowingRepository showingRepository;
-
     Movie mov = new Movie("title","description",13,"category",140,"imageURL");
-    Showroom showroom = new Showroom("show1",10,20);
-    java.util.Date datetime = new java.util.Date();
-    Showing show = new Showing(mov,showroom,datetime);
-    List<Showing> list = showingRepository.findAll();
-
-
-
-    @Test
-    public void getShowings() throws Exception {
-        for(Showing showing: list)
-            if(showing.getMovie() == mov){
-                
-            }
-        assertEquals();
-    }
-
-    @Test
-    public void setShowings() throws Exception {
-    }
 
     @Test
     public void getId() throws Exception {
+        assertEquals(0, mov.getId());
+        mov.setId(1);
+        assertEquals(1, mov.getId());
     }
 
     @Test
     public void setId() throws Exception {
+        mov.setId(1888);
+        assertEquals(1888, mov.getId());
     }
 
     @Test
     public void getTitle() throws Exception {
+        assertEquals("title", mov.getTitle());
     }
 
     @Test
     public void setTitle() throws Exception {
+        assertEquals("title", mov.getTitle());
     }
 
     @Test
     public void getDescription() throws Exception {
+        assertEquals("description", mov.getDescription());
     }
 
     @Test
     public void setDescription() throws Exception {
+        mov.setDescription("description");
+        assertEquals("description", mov.getDescription());
     }
 
     @Test
     public void getAgeLimit() throws Exception {
+        assertEquals(13, mov.getAgeLimit());
     }
 
     @Test
     public void setAgeLimit() throws Exception {
+        mov.setAgeLimit(99);
+        assertEquals(99, mov.getAgeLimit());
     }
 
     @Test
     public void getCategory() throws Exception {
+        assertEquals("category", mov.getCategory());
     }
 
     @Test
     public void setCategory() throws Exception {
+        mov.setCategory("test");
+        assertEquals("test", mov.getCategory());
     }
 
     @Test
-    public void getPrice() throws Exception
-    {
+    public void getPrice() throws Exception{
+        assertEquals(140, mov.getPrice());
     }
 
     @Test
-    public void setPrice() throws Exception
-    {
+    public void setPrice() throws Exception{
+        mov.setPrice(999);
+        assertEquals(999, mov.getPrice());
     }
 
     @Test
-    public void getImageUrl() throws Exception
-    {
+    public void getImageUrl() throws Exception {
+        assertEquals("imageURL", mov.getImageUrl());
     }
 
     @Test
-    public void setImageUrl() throws Exception
-    {
+    public void setImageUrl() throws Exception {
+        mov.setImageUrl("test#");
+        assertEquals("test", mov.getImageUrl());
     }
 
 }

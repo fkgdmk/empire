@@ -95,7 +95,7 @@ public class Movie {
         this.category = category;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 

@@ -14,28 +14,28 @@ public class CustomerTest {
     @Test
     public void setId() throws Exception {
         cus.setId(3);
-        assertEquals(3,cus.getId());
+        assertEquals(3, cus.getId());
     }
 
     @Test
     public void getPhonumber() throws Exception{
-        assertEquals("28",cus.getPhonumber());
+        assertEquals("28", cus.getPhonumber());
     }
 
     @Test
     public void setPhonumber() throws Exception {
         cus.setPhonumber("876");
-        assertEquals("876",cus.getPhonumber());
+        assertEquals("876", cus.getPhonumber());
     }
 
     @Test
     public void getName() throws Exception {
-        assertEquals("NAME!",cus.getName());
+        assertEquals("NAME!", cus.getName());
     }
 
     @Test
     public void setName() throws Exception {
         cus.setName("abc");
-        assertEquals("abc",cus.getName());
+        assertEquals("abc", cus.getName());
     }
 }
