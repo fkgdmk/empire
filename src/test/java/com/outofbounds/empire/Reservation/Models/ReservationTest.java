@@ -3,10 +3,8 @@ package com.outofbounds.empire.Reservation.Models;
 import com.outofbounds.empire.Movies.Models.Movie;
 import com.outofbounds.empire.Showings.Models.Showing;
 import com.outofbounds.empire.Showrooms.Models.Showroom;
-import org.junit.Assert;
 import org.junit.Test;
 import java.util.Date;
-
 import static org.junit.Assert.assertEquals;
 
 /**

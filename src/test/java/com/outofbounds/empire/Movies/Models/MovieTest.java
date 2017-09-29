@@ -29,11 +29,6 @@ public class MovieTest {
 
     @Test
     public void getShowings() throws Exception {
-        for(Showing showing: list)
-            if(showing.getMovie() == mov){
-                
-            }
-        assertEquals();
     }
 
     @Test
