@@ -31,6 +31,7 @@ public class StatisticsController {
     @Autowired
     public ReservationRepository reservationRepository;
 
+    @CrossOrigin(origins = {"http://localhost:8000"})
     @RequestMapping(method = RequestMethod.GET, value = "/statistics/{movieId}")
     public @ResponseBody
     Statistic getStatisticsByMovieID(@PathVariable int movieId) {
