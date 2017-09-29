@@ -3,7 +3,6 @@ package com.outofbounds.empire.Movies.Models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.outofbounds.empire.Showings.Models.Showing;
 import com.outofbounds.empire.Statistics.Models.Statistic;
-
 import javax.persistence.*;
 import java.util.List;
 
