@@ -85,5 +85,4 @@ public class MovieTest {
         mov.setImageUrl("test#");
         assertEquals("test", mov.getImageUrl());
     }
-
 }

@@ -3,9 +3,7 @@ package com.outofbounds.empire.Showings.Models;
 import com.outofbounds.empire.Movies.Models.Movie;
 import com.outofbounds.empire.Showrooms.Models.Showroom;
 import org.junit.Test;
-
 import java.util.Date;
-
 import static org.junit.Assert.*;
 
 /**
