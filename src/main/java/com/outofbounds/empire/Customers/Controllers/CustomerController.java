@@ -51,7 +51,6 @@ public class CustomerController {
 
         try {
             customer.setName(name);
-            customer.setEmail(email);
             customer.setPhonumber(phonenumber);
 
         } catch (NullPointerException e) {
