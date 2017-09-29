@@ -5,7 +5,6 @@ import com.outofbounds.empire.Reservation.Repositories.ReservationRepository;
 import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Iterator;
 import java.util.List;
 
