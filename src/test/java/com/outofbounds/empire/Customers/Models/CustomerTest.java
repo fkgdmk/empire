@@ -6,9 +6,11 @@ import static org.junit.Assert.*;
 
 public class CustomerTest
 {
-    Customer cus = new Customer("28","NAME!","www.@.com");
+    Customer cus = new Customer("28","NAME!","test");
     @Test //kan ikke testes da det autogenereres?
     public void getId() throws Exception {
+        cus.setId(23);
+        assertEquals(23, cus.getId());
     }
 
     @Test
@@ -19,27 +21,29 @@ public class CustomerTest
 
     @Test
     public void getPhonumber() throws Exception{
-        
+        assertEquals("28",cus.getPhonumber());
     }
 
     @Test
-    public void setPhonumber() throws Exception
-    {
+    public void setPhonumber() throws Exception {
+        cus.setPhonumber("876");
+        assertEquals("876",cus.getPhonumber());
     }
 
     @Test
-    public void getName() throws Exception
-    {
+    public void getName() throws Exception {
+        assertEquals("NAME!",cus.getName());
     }
 
     @Test
-    public void setName() throws Exception
-    {
+    public void setName() throws Exception {
+        cus.setName("abc");
+        assertEquals("abc",cus.getName());
     }
 
     @Test
-    public void getEmail() throws Exception
-    {
+    public void getEmail() throws Exception {
+        assertEquals("test",cus.getEmail());
     }
 
     @Test
