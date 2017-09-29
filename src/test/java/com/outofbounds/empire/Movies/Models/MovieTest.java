@@ -1,12 +1,39 @@
 package com.outofbounds.empire.Movies.Models;
 
+import com.outofbounds.empire.Movies.Repositories.MovieRepository;
+import com.outofbounds.empire.Showings.Models.Showing;
+import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
+import com.outofbounds.empire.Showrooms.Models.Showroom;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 import static org.junit.Assert.*;
+import java.util.Date;
 
 public class MovieTest {
+
+    public MovieTest() throws Exception {
+    }
+
+    @Autowired
+    ShowingRepository showingRepository;
+
+    Movie mov = new Movie("title","description",13,"category",140,"imageURL");
+    Showroom showroom = new Showroom("show1",10,20);
+    java.util.Date datetime = new java.util.Date();
+    Showing show = new Showing(mov,showroom,datetime);
+    List<Showing> list = showingRepository.findAll();
+
+
+
     @Test
     public void getShowings() throws Exception {
+        for(Showing showing: list)
+            if(showing.getMovie() == mov){
+                
+            }
+        assertEquals();
     }
 
     @Test
