@@ -7,8 +7,6 @@ import com.outofbounds.empire.Showrooms.Models.Showroom;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
-
 /**
  * Created by Anders on 26-Sep-17.
  */
