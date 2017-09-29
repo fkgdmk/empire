@@ -1,12 +1,10 @@
 package com.outofbounds.empire.Customers.Models;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
-public class CustomerTest
-{
-    Customer cus = new Customer("28","NAME!","test");
+public class CustomerTest {
+    Customer cus = new Customer("28","NAME!");
     @Test //kan ikke testes da det autogenereres?
     public void getId() throws Exception {
         cus.setId(23);
@@ -40,15 +38,4 @@ public class CustomerTest
         cus.setName("abc");
         assertEquals("abc",cus.getName());
     }
-
-    @Test
-    public void getEmail() throws Exception {
-        assertEquals("test",cus.getEmail());
-    }
-
-    @Test
-    public void setEmail() throws Exception
-    {
-    }
-
 }
