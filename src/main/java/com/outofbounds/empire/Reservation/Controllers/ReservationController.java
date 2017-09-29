@@ -5,8 +5,6 @@ import com.outofbounds.empire.Reservation.Repositories.ReservationRepository;
 import com.outofbounds.empire.Showings.Repositories.ShowingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -39,11 +37,11 @@ class ReservationController {
     @RequestMapping(method = RequestMethod.POST, value = "/reservations")
     public @ResponseBody
     Reservation addReservation(
-            @RequestParam (required = true) int seats,
+            @RequestParam (required = true) int seat,
             @RequestParam (required = true) String phoneNumber,
-            @RequestParam (required = true) int showroomid ) {
+            @RequestParam (required = true) int showingId ) {
 
-        Reservation reservation = new Reservation(showingRepository.findById(showroomid),seats,phoneNumber);
+        Reservation reservation = new Reservation(showingRepository.findById(showingId),seat,phoneNumber);
         reservationRepository.save(reservation);
         return reservation;
     }
